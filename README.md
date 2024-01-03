@@ -11,7 +11,7 @@ AutoSetupLinux is a simple Python script. It makes setting up your Linux system 
 - Ability to use sudo commands or have root access.
 
 ## How to Set Up and Use
-'$ git clone https://github.com/AndrejsMihailicenko/AutoSetupLinux.git'
+'$ git clone https://github.com/AndrejsMihailicenko/AutoSetupLinux.git'<br>
 '$ python3 setup.py'
 
 ## How It Works
