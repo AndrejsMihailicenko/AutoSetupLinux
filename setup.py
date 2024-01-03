@@ -43,14 +43,16 @@ def install_jdk(package_manager):
             download_link = page_content.find('a', href=lambda href: href and "jdk-21_linux-x64_bin.rpm" in href)
             if download_link:
                 download_url = download_link['href']
+                filename = download_url.split('/')[-1]
                 subprocess.run(f'wget {download_url}', shell=True)
-                subprocess.run(f'sudo dnf install -y {download_url.split('/')[-1]}', shell=True)
+                subprocess.run(f'sudo dnf install -y {filename}', shell=True)
         elif package_manager == 'apt':
             download_link = page_content.find('a', href=lambda href: href and "jdk-21_linux-x64_bin.deb" in href)
             if download_link:
                 download_url = download_link['href']
+                filename = download_url.split('/')[-1]
                 subprocess.run(f'wget {download_url}', shell=True)
-                subprocess.run(f'sudo dpkg -i {download_url.split('/')[-1]}', shell=True)
+                subprocess.run(f'sudo dpkg -i {filename}', shell=True)
 
 def apps_installation(package_manager, apps_list):
     for app in apps_list:
