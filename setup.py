@@ -4,7 +4,6 @@ import distro
 import sys
 import requests
 
-
 def os_detector():
     name = distro.name() 
     if (name == 'Fedora Linux'):
@@ -63,5 +62,5 @@ if __name__ == "__main__":
     install_libraries(package_manager)
     system_update(package_manager)
     apps_list = read_packages() 
-    apps_installation(apps_list)
+    apps_installation(package_manager, apps_list)
     install_jdk(package_manager)
