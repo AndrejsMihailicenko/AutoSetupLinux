@@ -32,7 +32,7 @@ cd AutoSetupLinux/
 python3 setup.py
 ```
 ## Scripta darbība
-- **os_detector**: Vispirms skripts noskaidro, kādu Linux sistēmu jūs izmantojat. Šobrīd skripts strādā ar RHEL(Fedora, CentOS, Red Hat Enterprise Linux) bāzētiem distro. Ja operētājsistēma nav atpazīta, izbeidz izpildi un izvada paziņojumu par nepieļaujamu sistēmu.
+- **os_detector**: Vispirms skripts noskaidro, kādu Linux sistēmu jūs izmantojat. Šobrīd skripts strādā ar Fedora un Ubuntu Linux sistemam. Ja operētājsistēma nav atpazīta, izbeidz izpildi un izvada paziņojumu par nepieļaujamu sistēmu.
 - **install_libraries**: Funkcijā instalē visas Python bibliotēkas, kas uzskaitītas requirements.txt.
 - **system_update**: Atjauno sistēmas pakotnes izmantojot norādīto pakotēs pārvaldītāju (piemēram, "dnf" vai "apt").
 Izmanto subprocess.run funkciju, lai izpildītu komandas sistēmas procesā, piemēram, 'sudo dnf update -y'.
