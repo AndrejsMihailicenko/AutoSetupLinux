@@ -23,7 +23,7 @@ python3 setup.py
 ```
 
 ## How It Works
-- **Detects System Type**: The script first finds out what Linux system you're using. At this moment script works with RHEL based distro.
+- **Detects System Type**: The script first finds out what Linux system you're using. At this moment script works with RHEL and Debian based distro.
 - **Installs Python Libraries**: It installs any Python libraries listed in `requirements.txt`.
 - **Updates System**: The script updates your Linux system.
 - **Installs Software**: It installs the software you listed in `packages.csv`.
