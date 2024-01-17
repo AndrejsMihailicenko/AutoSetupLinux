@@ -11,7 +11,7 @@ def os_detector():
     elif (name == 'Debian GNU/Linux' or name == 'Ubuntu'):
         return 'apt'
     else:
-        sys.exit('Unsupported operating system')  
+        sys.exit('Unsupported operating system, use Fedora or Ubuntu!')  
 
 def install_libraries(package_manager):
     if (package_manager == 'dnf'):
@@ -52,15 +52,22 @@ def install_jdk(package_manager):
                 filename = download_url.split('/')[-1]
                 subprocess.run(f'wget {download_url}', shell=True)
                 subprocess.run(f'sudo dpkg -i {filename}', shell=True)
+    else:
+        print("This site can't be reached")
+        pass
 
 def apps_installation(package_manager, apps_list):
     for app in apps_list:
         subprocess.run(f'sudo {package_manager} install -y {app}', shell=True, check=True)
 
 if __name__ == "__main__":
-    package_manager = os_detector()
-    install_libraries(package_manager)
-    system_update(package_manager)
-    apps_list = read_packages() 
-    apps_installation(package_manager, apps_list)
-    install_jdk(package_manager)
+    try:
+        package_manager = os_detector()
+        install_libraries(package_manager)
+        system_update(package_manager)
+        apps_list = read_packages() 
+        apps_installation(package_manager, apps_list)
+        install_jdk(package_manager)
+        print("Successful!")
+    except Exception as e: 
+        print(f"Something goes wrong {e}")
