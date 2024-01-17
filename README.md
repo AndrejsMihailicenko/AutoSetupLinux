@@ -43,6 +43,3 @@ Atkarībā no operētājsistēmas un pieejamās JDK versijas saņem konkrēto le
 Lejupielādē JDK un instalē to, izmantojot atbilstošo komandu (sudo dnf install vai sudo dpkg -i).
 - **apps_installation**: Funkcija instalē visas programmas no saraksta apps_list, izmantojot norādīto pakotēs pārvaldītāju.
 Katru programmu nosaukumu padod kā argumentu sistēmas komandai, piemēram, sudo dnf install.ibraries listed in `requirements.txt`.
-- **Updates System**: The script updates your Linux system.
-- **Installs Software**: It installs the software you listed in `packages.csv`.
-- **Installs JDK**: Finally, the script downloads and installs the latest Java Development Kit from Oracle's website.
