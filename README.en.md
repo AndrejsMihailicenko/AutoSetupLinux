@@ -1,6 +1,6 @@
 # AutoSetupLinux
-*Lasīt latviešu valodā: [Latvian](README.lv.md).*<br>
-*Read this in other languages: [Latviešu](README.lv.md).*
+*Lasīt latviešu valodā: [Latvian](README.md).*<br>
+*Read this in other languages: [Latviešu](README.md).*
 
 ## What is AutoSetupLinux?
 AutoSetupLinux is a simple Python script. It makes setting up your Linux system easy. It automatically installs software and updates your system. I Developed this for my Tehnical University course DIP225.  
