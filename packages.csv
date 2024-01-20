@@ -1,4 +1,6 @@
 Enter the name of the package, each line one package
-git
-neovim
+vim
 libreoffice
+mc
+chromium-browser
+wireshark
