@@ -1,6 +1,9 @@
 Enter the name of the package, each line one package
 vim
-libreoffice
 mc
-chromium-browser
 wireshark
+gnome-tweaks
+papirus-icon-theme
+fastfetch
+google-chrome-stable
+zsh

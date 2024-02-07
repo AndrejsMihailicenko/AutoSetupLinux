@@ -9,17 +9,13 @@ AutoSetupLinux ir vienkāršs Python skripts. Es izstrādāju šo programmu prie
 
 ## Kas ir nepieciešams?
 - Python 3.
-- Python 3 `pip`.
-- `bs4` (BeautifulSoup), `distro`, `requests` bibliotēkas.
 - Interneta pieslēgums.
 - Spēja izmantot sudo komandas vai piekļuvi root tiesībām.
 
 ## Bibliotēkas izmantošanas pamatojums
-- bs4 -> izmanto priekš web scrapping, lai atvērt Oracle tīmekļa lapu un mēklēt HTML koda linku uz instalēšanu.
 - subprocess -> izmanto, lai ievadīt sistēmas komandes termināla
 - distro -> linuks izplātīšanas vērsijas noteikšanai
 - sys -> izmanto, priekš sistēmas funkcijas izmantošanas.Piemēram sys.exit()
-- requests -> izmanto, lai izpildīt HTTP pieprasījumus
 
 ## Kā Iestatīt un Lietot
 1. Klonējiet GitHub repozitoriju uz jūsu datoru.
@@ -38,8 +34,5 @@ python3 setup.py
 Izmanto subprocess.run funkciju, lai izpildītu komandas sistēmas procesā, piemēram, 'sudo dnf update -y'.
 - **read_packages**: Nolasa programmu sarakstu no "packages.csv" faila, izlaižot pirmo rindiņu (virsrakstu).
 Katru programmu nosaukumu pievieno sarakstam apps_list.
-- **Instalē JDK**: Visbeidzot, skripts iegūst Oracle Java Development Kit (JDK) lejupielādes saiti no Oracle mājaslapas, izmantojot requests un bs4.
-Atkarībā no operētājsistēmas un pieejamās JDK versijas saņem konkrēto lejupielādes saiti un faila nosaukumu.
-Lejupielādē JDK un instalē to, izmantojot atbilstošo komandu (sudo dnf install vai sudo dpkg -i).
 - **apps_installation**: Funkcija instalē visas programmas no saraksta apps_list, izmantojot norādīto pakotēs pārvaldītāju.
 Katru programmu nosaukumu padod kā argumentu sistēmas komandai, piemēram, sudo dnf install.ibraries listed in `requirements.txt`.

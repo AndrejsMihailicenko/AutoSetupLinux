@@ -1,73 +1,58 @@
 import subprocess
-import bs4
 import distro
 import sys
-import requests
+import os
+
 
 def os_detector():
-    name = distro.name() 
-    if (name == 'Fedora Linux'):
+    name = distro.name()
+    if name in ['Fedora Linux']:
         return 'dnf'
-    elif (name == 'Debian GNU/Linux' or name == 'Ubuntu'):
+    elif name in ['Debian GNU/Linux' or name == 'Ubuntu']:
         return 'apt'
     else:
-        sys.exit('Unsupported operating system, use Fedora or Ubuntu!')  
+        sys.exit('Unsupported operating system, use Fedora or Ubuntu!')
 
-def install_libraries(package_manager):
-    if (package_manager == 'dnf'):
-        subprocess.run('sudo dnf install -y python3-pip', shell=True)
-    if (package_manager == 'apt'):
-        subprocess.run('sudo apt install -y python3-pip', shell=True)
-    subprocess.run('pip install -r requirements.txt', shell=True, check=True)
+
+def system_update(package_manager):
+    subprocess.run(['sudo', package_manager, 'update', '-y'])
+    subprocess.run(['sudo', package_manager, 'upgrade', '-y'])
+
 
 def read_packages():
-    apps_list = []
-    with open("packages.csv", "r") as f:
-        next(f)
-        for line in f:
-            if line:
-                apps_list.append(line.strip())
-    return apps_list
-            
-def system_update(package_manager):
-    subprocess.run(f'sudo {package_manager} update -y && sudo {package_manager} upgrade -y', shell=True, check=True)
+    if os.path.exists("packages.csv"):
+        apps_list = []
+        with open("packages.csv", "r") as f:
+            next(f)
+            for line in f:
+                if line:
+                    apps_list.append(line.strip())
 
-def install_jdk(package_manager):
-    url = 'https://www.oracle.com/java/technologies/downloads/'
-    r = requests.get(url)
-    if r.status_code == 200:
-        page_content = bs4.BeautifulSoup(r.content, 'html.parser')
-
-        if package_manager == 'dnf':
-            download_link = page_content.find('a', href=lambda href: href and "jdk-21_linux-x64_bin.rpm" in href)
-            if download_link:
-                download_url = download_link['href']
-                filename = download_url.split('/')[-1]
-                subprocess.run(f'wget {download_url}', shell=True)
-                subprocess.run(f'sudo dnf install -y {filename}', shell=True)
-        elif package_manager == 'apt':
-            download_link = page_content.find('a', href=lambda href: href and "jdk-21_linux-x64_bin.deb" in href)
-            if download_link:
-                download_url = download_link['href']
-                filename = download_url.split('/')[-1]
-                subprocess.run(f'wget {download_url}', shell=True)
-                subprocess.run(f'sudo dpkg -i {filename}', shell=True)
     else:
-        print("This site can't be reached")
-        pass
+        sys.exit('Package list file not found!')
+    return apps_list
+
+
+def flatpak_install():
+    subprocess.run(['flatpak', 'install', 'flathub',
+                   'org.telegram.desktop', '-y'])
+    subprocess.run(['flatpak', 'install', 'flathub',
+                   'com.mattjakeman.ExtensionManager', '-y'])
+
 
 def apps_installation(package_manager, apps_list):
     for app in apps_list:
-        subprocess.run(f'sudo {package_manager} install -y {app}', shell=True, check=True)
+        subprocess.run(['sudo', package_manager, 'install', '-y', app])
+
 
 if __name__ == "__main__":
     try:
         package_manager = os_detector()
-        install_libraries(package_manager)
         system_update(package_manager)
-        apps_list = read_packages() 
+        apps_list = read_packages()
         apps_installation(package_manager, apps_list)
-        install_jdk(package_manager)
-        print("Successful!")
-    except Exception as e: 
+        flatpak_install()
+        print("Successful! All software installed!")
+        # subprocess.run(['sudo', 'reboot'])
+    except Exception as e:
         print(f"Something goes wrong {e}")
