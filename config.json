@@ -1,0 +1,16 @@
+{
+    "systemUpdates": true, 
+    "systemRestart": false, 
+    "packages": [
+        "vim", 
+        "git",
+        "htop",
+        "nodejs",
+        "python3-dev",
+        "docker-compose"
+    ],
+    "flatpaks": [
+        "org.telegram.desktop",
+        "com.mattjakeman.ExtensionManager"
+    ]
+}
