@@ -1,6 +1,6 @@
 # AutoSetupLinux
-*Lasīt latviešu valodā:* [Latviešu](README.lv.md.)<br>
-*Read this in other languages:* [Latvian](README.lv.md.)
+*Lasīt latviešu valodā:* [Latviešu](README.lv.md)<br>
+*Read this in other languages:* [Latvian](README.lv.md)
 
 ## Overview
 I frequently reinstall my Linux system. To streamline the process, I developed a simple but effective Python script that automatically downloads and installs my essential software. This saves me time and ensures I always have the tools I need after a fresh installation
