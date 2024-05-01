@@ -1,5 +1,5 @@
 # AutoSetupLinux
-*Read this in other languages [English](README.en.md).*
+*Read this in other languages [English](README.md).*
 
 ## Kas ir AutoSetupLinux?
 AutoSetupLinux ir vienkāršs Python skripts. Es izstrādāju šo programmu priekš Rīgas Tehniskās Universitātes kursa DIP225 'Lietojumprogrammatūras automatizēšanas rīki'. Kursa ietvāros jāizveido automatizāciju priekš kādas no ikdienas uzdēvumiem. Mana idēja, ir atvieglot virtuālās mašīnas vai resursdatora Linux sistēmas pēc-instalēšanas soļus. Katru reizi veidojot jauno virtuālo mašīnu, programmatūra kuru es instalēju ir apmēram vienāda. Tāpēc, ir vērts izstrādāt scriptu, kas atvieglos un samazinās laiku vēltīto uz komandas ievādi.<br>
